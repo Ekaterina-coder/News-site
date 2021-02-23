@@ -1,0 +1,66 @@
+<div class="ticker-wrap">
+  <div class="ticker">
+    <% @news.take(5).each do |news| %>
+      <div class="ticker__item"><%= news.title %></div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container news-content">
+  <div class="columns">
+    <div class="column">
+      <%= render 'layouts/devise_notifications.html.erb' %>
+      <% @admin_news.each do |news| %>
+        <%= link_to news.source_url do %>
+          <div class="card news-card">
+            <div class="card-content">
+              <p class="title">
+                <%= news.title %>
+              </p>
+              <p class="subtitle">
+                <%= news.subtitle %>
+              </p>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item">
+                <span>
+                  <%= link_to t('main_page.source'), news.source_url %>
+                </span>
+              </p>
+            </footer>
+          </div>
+        <% end %>
+      <% end %>
+      <% @news.each do |news| %>
+        <%= link_to news.url do %>
+          <div class="card news-card">
+            <div class="card-content">
+              <p class="title">
+                <%= news.title %>
+              </p>
+              <p class="subtitle">
+                <%= news.description %>
+              </p>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item">
+                <span>
+                  <%= link_to t('main_page.source'), news.url %>
+                </span>
+              </p>
+            </footer>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="column is-one-third">
+      <div class="box exchange-rate-box">
+        <div class="content">
+          <div class="exchange-rate-value"><%= t 'main_page.exch' %></div>
+          <div class="exchange-rate-value">$ <%= usd_rate %></div>
+          <div class="exchange-rate-value">€ <%= eur_rate %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

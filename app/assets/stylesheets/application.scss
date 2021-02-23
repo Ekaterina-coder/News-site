@@ -1,0 +1,159 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'bulma';
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+.news-header {
+    background-color: white;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.news-card {
+    margin-bottom: 30px;
+    border-radius: 35px;
+    transition: .2s;
+}
+
+.news-card:hover {
+    transform: scale(1.02);
+    transition: .2s;
+}
+
+.logo {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    .pre-name {
+        display: inline-block;
+        color: white;
+    }
+    .after-name {
+        background-color: rgb(255, 255, 255);
+        color: rgb(19, 19, 19);
+        padding: 4px 20px;
+        display: inline-block;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+}
+
+.news-content {
+    margin-top: 10px;
+}
+
+.nav-button {
+    color: white;
+}
+
+.button-default {
+    background-color: #FFA31A;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+}
+
+.button-grey {
+    background-color: rgb(61, 61, 61);
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+}
+
+.exchange-rate-box {
+    margin-top: 35px;
+    .exchange-rate-value {
+        font-weight: bold;
+        font-size: 27px;
+    }
+}
+
+$duration: 30s;
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-left: 100%;
+  box-sizing: content-box;
+
+  .ticker {
+    display: inline-block;
+    height: 4rem;
+    line-height: 4rem;
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+    animation-name: ticker;
+    -webkit-animation-duration: $duration;
+    animation-duration: $duration;
+
+    &__item {
+      display: inline-block;
+      padding: 0 2rem;
+      font-size: 2rem;
+      color: white;
+    }
+  }
+}
+
+body { padding-bottom: 5rem; }
+h1, h2, p { padding: 0 5%; }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Новости</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar news-header" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <div class="logo">
+              <div class="after-name">WorldNews</div>
+            </div>
+          </a>
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <div class="buttons">
+                <%= link_to t('main_page.home_link'), home_path, class: "button is-link is-rounded" %>
+                <%= link_to t('main_page.setting'), account_path, class: "button is-link is-rounded" %>
+                <% if current_user&.is_admin %>
+                  <%= link_to t('main_page.admin_panel'), news_items_path, class: "button is-success is-rounded" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <button class="button is-rounded is-small"><%= link_to 'EN', locale: :us %></button>
+                <button class="button is-rounded is-small"><%= link_to 'RU', locale: :ru %></button>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <div class="buttons">
+                <% if current_user %>
+                  <%= link_to t('main_page.signout'), destroy_user_session_url, method: :delete, class: "button is-danger is-rounded" %>
+                <% else %>
+                  <%= link_to t('main_page.signup'), new_user_registration_path, class: "button is-info is-rounded" %>
+                  <%= link_to t('main_page.signin'), new_user_session_path, class: "button is-success is-rounded" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

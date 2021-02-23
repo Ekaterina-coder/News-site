@@ -1,0 +1,1715 @@
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (103.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "preference" varchar)[0m
+  [1m[35m (110.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (90.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (111.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (74.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191227074316)[0m
+  [1m[35m (77.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191226213122);
+
+[0m
+  [1m[35m (89.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-12-27 11:48:41.785339"], ["updated_at", "2019-12-27 11:48:41.785339"]]
+  [1m[35m (69.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "4a1f13a86a07cca3662ae1e64e9825ad1c1687ce"], ["created_at", "2019-12-27 11:48:41.858715"], ["updated_at", "2019-12-27 11:48:41.858715"]]
+  [1m[35m (63.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 14:53:02 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.4ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 591.1ms | Allocations: 8494)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.19.2
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+Completed 200 OK in 4964ms (Views: 3165.8ms | ActiveRecord: 0.0ms | Allocations: 76568)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:53:07 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 1467.8ms | Allocations: 4422)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2395ms (Views: 1471.9ms | ActiveRecord: 0.0ms | Allocations: 8870)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:53:09 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 620.8ms | Allocations: 4384)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 4163ms (Views: 625.0ms | ActiveRecord: 0.0ms | Allocations: 8827)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/en" for 127.0.0.1 at 2019-12-27 14:53:13 +0300
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:53:13 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 424.8ms | Allocations: 4384)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1511ms (Views: 429.1ms | ActiveRecord: 0.0ms | Allocations: 8822)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 14:54:20 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered page/home.html.erb within layouts/application (Duration: 6.9ms | Allocations: 5866)
+Completed 500 Internal Server Error in 939ms (ActiveRecord: 0.0ms | Allocations: 9307)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:54:20 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered page/home.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1827)
+Completed 500 Internal Server Error in 1010ms (ActiveRecord: 0.0ms | Allocations: 3490)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:54:21 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered page/home.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1827)
+Completed 500 Internal Server Error in 1018ms (ActiveRecord: 0.0ms | Allocations: 3485)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/en" for 127.0.0.1 at 2019-12-27 14:54:23 +0300
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:54:23 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered page/home.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1827)
+Completed 500 Internal Server Error in 1045ms (ActiveRecord: 0.0ms | Allocations: 3487)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 14:55:53 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 383.9ms | Allocations: 8483)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1470ms (Views: 618.0ms | ActiveRecord: 0.0ms | Allocations: 28102)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:55:55 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 425.5ms | Allocations: 4348)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1395ms (Views: 434.8ms | ActiveRecord: 0.0ms | Allocations: 8835)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:55:56 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 425.3ms | Allocations: 4344)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1194ms (Views: 433.6ms | ActiveRecord: 0.0ms | Allocations: 8836)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/en" for 127.0.0.1 at 2019-12-27 14:55:57 +0300
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:55:57 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 407.8ms | Allocations: 4344)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1398ms (Views: 413.2ms | ActiveRecord: 0.0ms | Allocations: 8833)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 14:59:14 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 662.6ms | Allocations: 8438)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2242ms (Views: 913.0ms | ActiveRecord: 0.0ms | Allocations: 28285)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:59:16 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 414.9ms | Allocations: 4318)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1152ms (Views: 424.1ms | ActiveRecord: 0.0ms | Allocations: 8819)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:59:17 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 409.9ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1450ms (Views: 413.9ms | ActiveRecord: 0.0ms | Allocations: 8803)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/en" for 127.0.0.1 at 2019-12-27 14:59:19 +0300
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 14:59:19 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 401.2ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1408ms (Views: 405.0ms | ActiveRecord: 0.0ms | Allocations: 8799)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 15:01:55 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 381.7ms | Allocations: 8411)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1636ms (Views: 597.6ms | ActiveRecord: 0.0ms | Allocations: 28352)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:01:56 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 406.7ms | Allocations: 4316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1228ms (Views: 410.2ms | ActiveRecord: 0.0ms | Allocations: 8807)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:01:57 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 399.2ms | Allocations: 4312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1312ms (Views: 402.9ms | ActiveRecord: 0.0ms | Allocations: 8800)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/en" for 127.0.0.1 at 2019-12-27 15:01:59 +0300
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:01:59 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 394.0ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1412ms (Views: 397.4ms | ActiveRecord: 0.0ms | Allocations: 8802)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 15:02:22 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 413.4ms | Allocations: 8437)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1611ms (Views: 734.4ms | ActiveRecord: 0.0ms | Allocations: 28402)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:02:24 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 391.1ms | Allocations: 4316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1369ms (Views: 395.2ms | ActiveRecord: 0.0ms | Allocations: 8803)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:02:25 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 377.3ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1393ms (Views: 381.3ms | ActiveRecord: 0.0ms | Allocations: 8799)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2019-12-27 15:02:27 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 403.5ms | Allocations: 4416)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1450ms (Views: 407.5ms | ActiveRecord: 0.0ms | Allocations: 9516)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:02:28 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 408.8ms | Allocations: 4312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1383ms (Views: 412.2ms | ActiveRecord: 0.0ms | Allocations: 8800)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 15:02:58 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 408.4ms | Allocations: 8433)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1863ms (Views: 691.1ms | ActiveRecord: 0.0ms | Allocations: 28440)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:03:00 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 409.7ms | Allocations: 4318)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1434ms (Views: 413.7ms | ActiveRecord: 0.0ms | Allocations: 8807)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:03:02 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 456.8ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1973ms (Views: 461.2ms | ActiveRecord: 0.0ms | Allocations: 8807)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2019-12-27 15:03:04 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 412.4ms | Allocations: 4418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1378ms (Views: 416.3ms | ActiveRecord: 0.0ms | Allocations: 9562)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:03:05 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 414.9ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1326ms (Views: 418.6ms | ActiveRecord: 0.0ms | Allocations: 8802)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 15:04:58 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 573.2ms | Allocations: 8438)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1833ms (Views: 836.6ms | ActiveRecord: 0.0ms | Allocations: 28447)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:05:00 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 406.2ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1283ms (Views: 413.8ms | ActiveRecord: 0.0ms | Allocations: 8805)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:05:02 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 390.1ms | Allocations: 4312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 4886ms (Views: 393.8ms | ActiveRecord: 0.0ms | Allocations: 8804)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2019-12-27 15:05:06 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 412.2ms | Allocations: 4416)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1429ms (Views: 416.5ms | ActiveRecord: 0.0ms | Allocations: 9558)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:05:08 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 636.0ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1621ms (Views: 639.7ms | ActiveRecord: 0.0ms | Allocations: 8800)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 15:05:46 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 400.4ms | Allocations: 8413)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1545ms (Views: 641.3ms | ActiveRecord: 0.0ms | Allocations: 28505)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:05:48 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 389.0ms | Allocations: 4318)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1270ms (Views: 393.0ms | ActiveRecord: 0.0ms | Allocations: 8809)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:05:49 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 426.9ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1273ms (Views: 430.7ms | ActiveRecord: 0.0ms | Allocations: 8804)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2019-12-27 15:05:50 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 420.9ms | Allocations: 4416)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1295ms (Views: 424.8ms | ActiveRecord: 0.0ms | Allocations: 9558)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:05:52 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 399.8ms | Allocations: 4314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1235ms (Views: 420.2ms | ActiveRecord: 0.0ms | Allocations: 8804)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$IjJa.staRlReYYOS2qwANO7uAEvBmBd1hF5onNRWmSFX2/tpHMbEK"], ["created_at", "2019-12-27 12:05:53.508308"], ["updated_at", "2019-12-27 12:05:53.508308"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-12-27 15:38:46 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 551.2ms | Allocations: 8437)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1998ms (Views: 837.4ms | ActiveRecord: 0.0ms | Allocations: 28526)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:38:48 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 937.5ms | Allocations: 4316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1744ms (Views: 941.5ms | ActiveRecord: 0.0ms | Allocations: 8814)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:38:50 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 713.2ms | Allocations: 4312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1722ms (Views: 717.4ms | ActiveRecord: 0.0ms | Allocations: 8822)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2019-12-27 15:38:52 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 623.5ms | Allocations: 4418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1373ms (Views: 628.2ms | ActiveRecord: 0.0ms | Allocations: 9567)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2019-12-27 15:38:53 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 466.9ms | Allocations: 4316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1370ms (Views: 470.3ms | ActiveRecord: 0.0ms | Allocations: 8811)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$i4ZzszdKgFNlNhxUySiq4.AlGuU04DvxdkSv.DSrvPlFd0Twsa0qO"], ["created_at", "2019-12-27 12:38:55.225037"], ["updated_at", "2019-12-27 12:38:55.225037"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-01-13 21:25:41 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 461.2ms | Allocations: 8366)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1810ms (Views: 920.6ms | ActiveRecord: 0.0ms | Allocations: 76778)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:25:43 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 308.7ms | Allocations: 4313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1322ms (Views: 312.0ms | ActiveRecord: 0.0ms | Allocations: 8764)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:25:44 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 316.1ms | Allocations: 4311)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1326ms (Views: 319.8ms | ActiveRecord: 0.0ms | Allocations: 8760)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-01-13 21:25:45 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 311.0ms | Allocations: 4412)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1244ms (Views: 315.4ms | ActiveRecord: 0.0ms | Allocations: 9509)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:25:47 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 319.6ms | Allocations: 4307)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1071ms (Views: 323.4ms | ActiveRecord: 0.0ms | Allocations: 8761)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (42.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$pu/zSxdeLuFa5lTZsjccueVPqeCZ0YjU8IC5wNxwFnx5tDGrQrtiO"], ["created_at", "2020-01-13 18:25:48.298434"], ["updated_at", "2020-01-13 18:25:48.298434"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-01-13 21:28:19 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 318.9ms | Allocations: 8366)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2260ms (Views: 492.5ms | ActiveRecord: 0.0ms | Allocations: 30315)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:28:21 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 315.0ms | Allocations: 4311)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1143ms (Views: 318.8ms | ActiveRecord: 0.0ms | Allocations: 8811)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:28:22 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 313.3ms | Allocations: 4309)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1315ms (Views: 316.6ms | ActiveRecord: 0.0ms | Allocations: 8808)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-01-13 21:28:24 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 315.0ms | Allocations: 4414)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1324ms (Views: 319.0ms | ActiveRecord: 0.0ms | Allocations: 9565)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:28:25 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 317.2ms | Allocations: 4309)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1939ms (Views: 321.0ms | ActiveRecord: 0.0ms | Allocations: 8816)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$P7dY4Zj7f/pWnlc4pFu2euY83J8VNJ0kEN7hMYiyZ44FJbgjYmnUy"], ["created_at", "2020-01-13 18:28:27.558764"], ["updated_at", "2020-01-13 18:28:27.558764"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-01-13 21:33:35 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 429.0ms | Allocations: 8320)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1380ms (Views: 641.6ms | ActiveRecord: 0.0ms | Allocations: 30406)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:33:36 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 308.8ms | Allocations: 4311)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1730ms (Views: 312.5ms | ActiveRecord: 0.0ms | Allocations: 8813)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:33:38 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 557.2ms | Allocations: 4313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1521ms (Views: 564.9ms | ActiveRecord: 0.0ms | Allocations: 8812)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-01-13 21:33:39 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 324.8ms | Allocations: 4410)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1253ms (Views: 334.3ms | ActiveRecord: 0.0ms | Allocations: 9517)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:33:41 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 686.1ms | Allocations: 4313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1357ms (Views: 690.2ms | ActiveRecord: 0.0ms | Allocations: 8815)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$O0I4DkB3yLafhN6mSynT8ecyfGZk1IizatR5/gZjk3O2wQWvdS.qy"], ["created_at", "2020-01-13 18:33:42.622145"], ["updated_at", "2020-01-13 18:33:42.622145"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (221.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "preference" varchar)[0m
+  [1m[35m (221.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "preference" varchar)[0m
+  [1m[35m (220.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "preference" varchar)[0m
+  [1m[35m (279.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "preference" varchar)[0m
+  [1m[35m (178.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (209.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (210.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (290.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (235.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (268.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (237.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (333.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (299.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (300.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (299.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (289.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (268.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191227074316)[0m
+  [1m[35m (292.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191227074316)[0m
+  [1m[35m (345.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191227074316)[0m
+  [1m[35m (265.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191227074316)[0m
+  [1m[35m (322.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191226213122);
+
+[0m
+  [1m[35m (342.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191226213122);
+
+[0m
+  [1m[35m (344.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191226213122);
+
+[0m
+  [1m[35m (370.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191226213122);
+
+[0m
+  [1m[35m (310.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (266.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-01-13 18:33:52.304492"], ["updated_at", "2020-01-13 18:33:52.304492"]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-01-13 18:33:52.305321"], ["updated_at", "2020-01-13 18:33:52.305321"]]
+  [1m[35m (321.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-01-13 18:33:52.416289"], ["updated_at", "2020-01-13 18:33:52.416289"]]
+  [1m[35m (276.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-01-13 18:33:52.539931"], ["updated_at", "2020-01-13 18:33:52.539931"]]
+  [1m[35m (280.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "4a1f13a86a07cca3662ae1e64e9825ad1c1687ce"], ["created_at", "2020-01-13 18:33:52.590640"], ["updated_at", "2020-01-13 18:33:52.590640"]]
+  [1m[35m (325.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "4a1f13a86a07cca3662ae1e64e9825ad1c1687ce"], ["created_at", "2020-01-13 18:33:52.635083"], ["updated_at", "2020-01-13 18:33:52.635083"]]
+  [1m[35m (352.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "4a1f13a86a07cca3662ae1e64e9825ad1c1687ce"], ["created_at", "2020-01-13 18:33:52.774093"], ["updated_at", "2020-01-13 18:33:52.774093"]]
+  [1m[35m (407.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (360.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "4a1f13a86a07cca3662ae1e64e9825ad1c1687ce"], ["created_at", "2020-01-13 18:33:52.952396"], ["updated_at", "2020-01-13 18:33:52.952396"]]
+  [1m[35m (397.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (321.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (223.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-01-13 21:34:07 +0300
+Processing by PageController#home as HTML
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 308.7ms | Allocations: 8368)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1656ms (Views: 480.9ms | ActiveRecord: 0.0ms | Allocations: 30525)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:34:09 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 320.7ms | Allocations: 4313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1262ms (Views: 324.2ms | ActiveRecord: 0.0ms | Allocations: 8813)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:34:10 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 312.1ms | Allocations: 4307)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1015ms (Views: 315.8ms | ActiveRecord: 0.0ms | Allocations: 8806)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-01-13 21:34:11 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 321.4ms | Allocations: 4412)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1339ms (Views: 325.8ms | ActiveRecord: 0.0ms | Allocations: 9561)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-01-13 21:34:13 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 315.9ms | Allocations: 4307)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1296ms (Views: 319.6ms | ActiveRecord: 0.0ms | Allocations: 8806)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$FWMf5aCF/wHeIt2Qlm5F4u1juiagVgjjVvT1QY4n3zSbIofdQYYRi"], ["created_at", "2020-01-13 18:34:14.595406"], ["updated_at", "2020-01-13 18:34:14.595406"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "news_items"[0m
+  [1m[35m (234.4ms)[0m  [1m[35mCREATE TABLE "news_items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_id" integer, "news_type_id" integer, "title" varchar, "subtitle" varchar, "source_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (226.6ms)[0m  [1m[35mCREATE  INDEX "index_news_items_on_news_type_id" ON "news_items" ("news_type_id")[0m
+  [1m[35m (266.8ms)[0m  [1m[35mCREATE  INDEX "index_news_items_on_publisher_id" ON "news_items" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "news_types"[0m
+  [1m[35m (245.6ms)[0m  [1m[35mCREATE TABLE "news_types" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "type_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (122.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "preference" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "is_admin" varchar)[0m
+  [1m[35m (111.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (111.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "anews_items" ("id" integer NOT NULL PRIMARY KEY, "publisher_id" integer DEFAULT NULL, "news_type_id" integer DEFAULT NULL, "title" varchar DEFAULT NULL, "subtitle" varchar DEFAULT NULL, "source_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_anews_items_on_publisher_id" ON "anews_items" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_anews_items_on_news_type_id" ON "anews_items" ("news_type_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "anews_items" ("id","publisher_id","news_type_id","title","subtitle","source_url","created_at","updated_at")
+                     SELECT "id","publisher_id","news_type_id","title","subtitle","source_url","created_at","updated_at" FROM "news_items"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "news_items"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "news_items" ("id" integer NOT NULL PRIMARY KEY, "publisher_id" integer DEFAULT NULL, "news_type_id" integer DEFAULT NULL, "title" varchar DEFAULT NULL, "subtitle" varchar DEFAULT NULL, "source_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f17cbb331b"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_news_items_on_news_type_id" ON "news_items" ("news_type_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_news_items_on_publisher_id" ON "news_items" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "news_items" ("id","publisher_id","news_type_id","title","subtitle","source_url","created_at","updated_at")
+                     SELECT "id","publisher_id","news_type_id","title","subtitle","source_url","created_at","updated_at" FROM "anews_items"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "anews_items"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (121.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (166.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (96.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20202211213123)[0m
+  [1m[35m (99.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20202211213122);
+
+[0m
+  [1m[35m (116.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-11-28 23:54:30.856528"], ["updated_at", "2020-11-28 23:54:30.856528"]]
+  [1m[35m (73.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "a8e41f628a6e195f29890a27a598d97845d33f6c"], ["created_at", "2020-11-28 23:54:30.932919"], ["updated_at", "2020-11-28 23:54:30.932919"]]
+  [1m[35m (119.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by NewsItemsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 862)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "news_items"[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-11-29 02:54:31 +0300
+Processing by PageController#home as HTML
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms | Allocations: 1766)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 02:54:31 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 02:54:31 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-11-29 02:54:31 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 02:54:31 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "is_admin") VALUES (?, ?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$B0x3j4L2AWbk8cGXryrddO0YPy8bDRpHzpZIhnqsqsW5naVmAJzOa"], ["created_at", "2020-11-28 23:54:31.343428"], ["updated_at", "2020-11-28 23:54:31.343428"], ["is_admin", "f"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/news_items" for 127.0.0.1 at 2020-11-29 02:54:31 +0300
+Processing by NewsItemsController#index as HTML
+Redirected to http://www.example.com/ru/home
+Filter chain halted as :check_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 380)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  Rendering news_items/new.html.erb
+  Rendered news_items/_form.html.erb (Duration: 1.8ms | Allocations: 1330)
+  Rendered news_items/new.html.erb (Duration: 3.4ms | Allocations: 2397)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by NewsItemsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 862)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "news_items"[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-11-29 02:58:53 +0300
+Processing by PageController#home as HTML
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms | Allocations: 1477)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 02:58:53 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 02:58:53 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-11-29 02:58:53 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 02:58:53 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "is_admin") VALUES (?, ?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$bgABXjc8sq9ideW.VdKge.Kppep3znGabwirPz7FFWVuNWvCyJlK6"], ["created_at", "2020-11-28 23:58:53.350859"], ["updated_at", "2020-11-28 23:58:53.350859"], ["is_admin", "f"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/news_items" for 127.0.0.1 at 2020-11-29 02:58:53 +0300
+Processing by NewsItemsController#index as HTML
+Redirected to http://www.example.com/ru/home
+Filter chain halted as :check_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 380)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-11-29 03:04:21 +0300
+Processing by PageController#home as HTML
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms | Allocations: 1607)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:04:21 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:04:21 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-11-29 03:04:21 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:04:21 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 856)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "is_admin") VALUES (?, ?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$asHPp09HX3VECwK75AnxN.Whdx3AL/9zvceOrYK3NbSNfRRZQ4nAm"], ["created_at", "2020-11-29 00:04:21.466100"], ["updated_at", "2020-11-29 00:04:21.466100"], ["is_admin", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/news_items" for 127.0.0.1 at 2020-11-29 03:04:21 +0300
+Processing by NewsItemsController#index as HTML
+Redirected to http://www.example.com/ru/home
+Filter chain halted as :check_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 456)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:07:52 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms | Allocations: 2263)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-11-29 03:10:41 +0300
+Processing by PageController#home as HTML
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 475.6ms | Allocations: 8618)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 0a6ed421fbbe20ea2670
+Version: webpack 4.44.2
+Time: 1613ms
+Built at: 29.11.2020 03:10:46
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0f6ce38a357a4e2420b4.js    842 KiB  application  [emitted] [immutable]  application
+js/application-0f6ce38a357a4e2420b4.js.map    898 KiB  application  [emitted] [dev]        application
+      js/hello_vue-8808ef786631a4d4b877.js    239 KiB    hello_vue  [emitted] [immutable]  hello_vue
+  js/hello_vue-8808ef786631a4d4b877.js.map    292 KiB    hello_vue  [emitted] [dev]        hello_vue
+                             manifest.json  729 bytes               [emitted]              
+Entrypoint application = js/application-0f6ce38a357a4e2420b4.js js/application-0f6ce38a357a4e2420b4.js.map
+Entrypoint hello_vue = js/hello_vue-8808ef786631a4d4b877.js js/hello_vue-8808ef786631a4d4b877.js.map
+[./app/javascript/app.vue] 291 bytes {hello_vue} [built] [failed] [1 error]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 792 bytes {application} [built]
+[./app/javascript/packs/hello_vue.js] 1.89 KiB {hello_vue} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {hello_vue} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 115 hidden modules
+
+ERROR in ./app/javascript/app.vue 1:0
+Module parse failed: Unexpected token (1:0)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> <template>
+|   <div id="app">
+|     <p>{{ message }}</p>
+ @ ./app/javascript/packs/hello_vue.js 8:0-29 12:15-18
+
+Completed 200 OK in 5174ms (Views: 4532.4ms | ActiveRecord: 0.4ms | Allocations: 88645)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:10:47 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 309.8ms | Allocations: 4489)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 943ms (Views: 313.8ms | ActiveRecord: 0.1ms | Allocations: 9577)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:10:47 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 308.8ms | Allocations: 4485)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 961ms (Views: 313.4ms | ActiveRecord: 0.1ms | Allocations: 9522)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-11-29 03:10:48 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 315.3ms | Allocations: 4590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 568ms (Views: 319.5ms | ActiveRecord: 0.1ms | Allocations: 10162)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:10:49 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 537.9ms | Allocations: 4485)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1183ms (Views: 542.2ms | ActiveRecord: 0.1ms | Allocations: 9502)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "is_admin") VALUES (?, ?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$J6RmsDHHYPWrAXy13sKV/ufYpRtPWSgT.a..8qH3K5Fmw.u7088Wi"], ["created_at", "2020-11-29 00:10:50.739540"], ["updated_at", "2020-11-29 00:10:50.739540"], ["is_admin", "f"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/news_items" for 127.0.0.1 at 2020-11-29 03:10:50 +0300
+Processing by NewsItemsController#index as HTML
+Redirected to http://www.example.com/ru/home
+Filter chain halted as :check_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 422)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-11-29 03:16:53 +0300
+Processing by PageController#home as HTML
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 378.3ms | Allocations: 8618)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1289ms (Views: 553.3ms | ActiveRecord: 0.3ms | Allocations: 38711)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:16:55 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 315.6ms | Allocations: 4489)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 937ms (Views: 320.1ms | ActiveRecord: 0.1ms | Allocations: 9592)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:16:56 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 311.8ms | Allocations: 4483)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 964ms (Views: 333.6ms | ActiveRecord: 0.1ms | Allocations: 9558)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-11-29 03:16:57 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 309.7ms | Allocations: 4588)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 790ms (Views: 314.8ms | ActiveRecord: 0.1ms | Allocations: 10246)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:16:57 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 313.4ms | Allocations: 4483)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 921ms (Views: 317.8ms | ActiveRecord: 0.1ms | Allocations: 9578)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "is_admin") VALUES (?, ?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$j9.H0AnGPGEaLuSNj5QdceWTneia2VPqU1lgwMkyqadYj6LOQlnhm"], ["created_at", "2020-11-29 00:16:58.912797"], ["updated_at", "2020-11-29 00:16:58.912797"], ["is_admin", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/news_items" for 127.0.0.1 at 2020-11-29 03:16:58 +0300
+Processing by NewsItemsController#index as HTML
+Redirected to http://www.example.com/ru/home
+Filter chain halted as :check_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 422)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/account" for 127.0.0.1 at 2020-11-29 03:16:58 +0300
+Processing by PageController#account as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 1013)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-11-29 03:18:00 +0300
+Processing by PageController#home as HTML
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 329.1ms | Allocations: 8620)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1107ms (Views: 505.2ms | ActiveRecord: 0.3ms | Allocations: 39176)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:18:01 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 306.7ms | Allocations: 4489)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 910ms (Views: 311.2ms | ActiveRecord: 0.1ms | Allocations: 9612)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:18:02 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 314.3ms | Allocations: 4483)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 957ms (Views: 318.2ms | ActiveRecord: 0.1ms | Allocations: 9582)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-11-29 03:18:03 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 326.7ms | Allocations: 4586)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 784ms (Views: 331.4ms | ActiveRecord: 0.1ms | Allocations: 10339)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:18:04 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 320.0ms | Allocations: 4485)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 900ms (Views: 324.5ms | ActiveRecord: 0.1ms | Allocations: 9604)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "is_admin") VALUES (?, ?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$ZLDxPEwAGhhwATbij1ht7O7AX2k9wQ8/RVH.6brIRk3ERjs6ZWjMK"], ["created_at", "2020-11-29 00:18:05.346558"], ["updated_at", "2020-11-29 00:18:05.346558"], ["is_admin", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/news_items" for 127.0.0.1 at 2020-11-29 03:18:05 +0300
+Processing by NewsItemsController#index as HTML
+Redirected to http://www.example.com/ru/home
+Filter chain halted as :check_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 422)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-11-29 03:18:05 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 694)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 3321)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 8235)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "news_items"[0m
+  [1m[35m (130.1ms)[0m  [1m[35mCREATE TABLE "news_items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_id" integer, "news_type_id" integer, "title" varchar, "subtitle" varchar, "source_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (100.4ms)[0m  [1m[35mCREATE  INDEX "index_news_items_on_news_type_id" ON "news_items" ("news_type_id")[0m
+  [1m[35m (99.7ms)[0m  [1m[35mCREATE  INDEX "index_news_items_on_publisher_id" ON "news_items" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "news_types"[0m
+  [1m[35m (122.4ms)[0m  [1m[35mCREATE TABLE "news_types" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "type_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (133.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "preference" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "is_admin" varchar)[0m
+  [1m[35m (133.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (111.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "anews_items" ("id" integer NOT NULL PRIMARY KEY, "publisher_id" integer DEFAULT NULL, "news_type_id" integer DEFAULT NULL, "title" varchar DEFAULT NULL, "subtitle" varchar DEFAULT NULL, "source_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_anews_items_on_publisher_id" ON "anews_items" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_anews_items_on_news_type_id" ON "anews_items" ("news_type_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "anews_items" ("id","publisher_id","news_type_id","title","subtitle","source_url","created_at","updated_at")
+                     SELECT "id","publisher_id","news_type_id","title","subtitle","source_url","created_at","updated_at" FROM "news_items"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "news_items"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "news_items" ("id" integer NOT NULL PRIMARY KEY, "publisher_id" integer DEFAULT NULL, "news_type_id" integer DEFAULT NULL, "title" varchar DEFAULT NULL, "subtitle" varchar DEFAULT NULL, "source_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f17cbb331b"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_news_items_on_news_type_id" ON "news_items" ("news_type_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_news_items_on_publisher_id" ON "news_items" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "news_items" ("id","publisher_id","news_type_id","title","subtitle","source_url","created_at","updated_at")
+                     SELECT "id","publisher_id","news_type_id","title","subtitle","source_url","created_at","updated_at" FROM "anews_items"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "anews_items"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (95.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (111.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (98.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20202211213123)[0m
+  [1m[35m (179.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20202211213122);
+
+[0m
+  [1m[35m (448.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-11-29 00:34:09.068909"], ["updated_at", "2020-11-29 00:34:09.068909"]]
+  [1m[35m (311.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "d73410a7edea1f11877ce76ff2afa1e4c4122941"], ["created_at", "2020-11-29 00:34:09.383401"], ["updated_at", "2020-11-29 00:34:09.383401"]]
+  [1m[35m (193.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-11-29 03:34:09 +0300
+Processing by PageController#home as HTML
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 315.5ms | Allocations: 8735)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1150ms (Views: 493.6ms | ActiveRecord: 0.3ms | Allocations: 39273)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:34:10 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered page/home.html.erb within layouts/application (Duration: 317.8ms | Allocations: 4491)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 877ms (Views: 322.3ms | ActiveRecord: 0.1ms | Allocations: 9614)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:34:11 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 314.3ms | Allocations: 4483)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 966ms (Views: 318.7ms | ActiveRecord: 0.1ms | Allocations: 9560)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/us" for 127.0.0.1 at 2020-11-29 03:34:12 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"us"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 304.0ms | Allocations: 4586)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 596ms (Views: 309.1ms | ActiveRecord: 0.1ms | Allocations: 10239)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-11-29 03:34:13 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (0.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered page/home.html.erb within layouts/application (Duration: 324.5ms | Allocations: 4483)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 889ms (Views: 328.9ms | ActiveRecord: 0.1ms | Allocations: 9557)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "is_admin") VALUES (?, ?, ?, ?, ?)[0m  [["email", "test@email.com"], ["encrypted_password", "$2a$04$0MKhptLly8i5Ijzytu6.aeR6PdTdJLLhlMgNMBm/D7nP84YiBHu4G"], ["created_at", "2020-11-29 00:34:14.156183"], ["updated_at", "2020-11-29 00:34:14.156183"], ["is_admin", "f"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/news_items" for 127.0.0.1 at 2020-11-29 03:34:14 +0300
+Processing by NewsItemsController#index as HTML
+Redirected to http://www.example.com/ru/home
+Filter chain halted as :check_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 422)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-11-29 03:34:14 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 694)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3321)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 8235)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (11.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (13.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/ru" for 127.0.0.1 at 2020-12-07 23:32:40 +0300
+Processing by PageController#home as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mNewsType Load (23.1ms)[0m  [1m[34mSELECT "news_types".* FROM "news_types" WHERE "news_types"."type_name" = ? LIMIT ?[0m  [["type_name", "general"], ["LIMIT", 1]]
+  Rendering page/home.html.erb within layouts/application
+  Rendered layouts/_devise_notifications.html.erb (Duration: 18.8ms | Allocations: 141)
+  Rendered page/home.html.erb within layouts/application (Duration: 467.9ms | Allocations: 8740)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2022ms (Views: 1475.9ms | ActiveRecord: 23.4ms | Allocations: 39974)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m

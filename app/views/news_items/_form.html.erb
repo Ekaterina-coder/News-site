@@ -1,0 +1,35 @@
+<%= form_with(model: news_item, local: true) do |form| %>
+  <div class="field">
+    <label class="label"><%= t('news_items.form_title') %></label>
+    <div class="control">
+      <%= form.text_field :title, class: 'input', placeholder: "Заголовок" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label"><%= t('news_items.form_subtitle') %></label>
+    <div class="control">
+      <%= form.text_area :subtitle, class: 'textarea', placeholder: "Основная часть" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label"><%= t('news_items.form_source_url') %></label>
+    <div class="control">
+      <%= form.text_field :source_url, class: 'input', placeholder: "Ссылка на источник" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label"><%= t('news_items.form_news_type') %></label>
+    <div class="select">
+      <%= form.select :news_type, options_for_select(user_preferences) %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t('news_items.form_save'), class: "button is-link" %>
+  </div>
+<% end %>
+
+

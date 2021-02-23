@@ -1,0 +1,19 @@
+<% unless notice.blank? %>
+  <div class="notification is-info">
+    <%= notice %>
+  </div>
+<% end %>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <%= t('news_items.admin_panel') %>
+      </h1>
+    </div>
+  </div>
+</section>
+
+<div class="container news-content">
+  <h1 class="title"><%= t('news_items.add_news') %></h1>
+  <%= render 'form', news_item: @news_item %>
+</div>

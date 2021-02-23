@@ -1,0 +1,30 @@
+<div class="container news-content">
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-3"><%= current_user.username %></p>
+          <% if current_user&.is_admin %>
+            <p class="subtitle is-6 has-text-success"><%= t('news_items.admin') %></p>
+          <% end %>
+          <p class="subtitle is-6"><%= current_user.email %></p>
+          <p class="subtitle is-6"><%= t 'account_page.since' %><%= current_user.created_at %></p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="title"><%= t 'account_page.preffered_news' %></div>
+
+        <%= form_tag url_for(:action => 'update_preferences', :controller => 'user'), :method => 'get', remote: true do %>
+        <div class="select">
+          <%= select_tag :pref, options_for_select(user_preferences) %>
+        </div>
+        <div class="content news-content">
+          <%= submit_tag t('account_page.submit'), class: "button is-primary" %>
+        </div>
+        <% end %>
+      </div>
+      <p class="help is-success res-info"></p>
+    </div>
+  </div>
+</div>

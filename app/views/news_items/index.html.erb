@@ -1,0 +1,45 @@
+<% unless notice.blank? %>
+  <div class="notification is-info">
+    <%= notice %>
+  </div>
+<% end %>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <%= t('news_items.admin_panel') %>
+      </h1>
+    </div>
+  </div>
+</section>
+<div class="container news-content">
+  <h1 class="title"><%= t('news_items.personal_news') %></h1>
+  <%= link_to t('news_items.add_news'), new_news_item_path, class: "button is-link is-rounded" %>
+  <% @news_items.each do |news| %>
+    <%= link_to news.source_url do %>
+      <div class="card news-card">
+        <div class="card-content">
+          <p class="title">
+            <%= news.title %>
+          </p>
+          <p class="subtitle">
+            <%= news.subtitle %>
+          </p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              <%= link_to t('main_page.source'), news.source_url, class: "button is-ghost is-rounded" %>
+            </span>
+          </p>
+          <p class="card-footer-item">
+            <span>
+              <%= link_to t('news_items.edit'), edit_news_item_path(news), class: "button is-warning is-rounded" %>
+              <%= link_to t('news_items.delete'), news, method: :delete, data: { confirm: t('news_items.confirm') }, class: "button is-danger is-rounded" %>
+            </span>
+          </p>
+        </footer>
+      </div>
+    <% end %>
+  <% end %>
+</div>
